@@ -8,6 +8,24 @@ function api_docs_schema_retrieve(payload) {
     params: { lang: payload.lang }
   })
 }
+function api_v1_items_list(payload) {
+  return moduletestingAPI.get(`/api/v1/items/`)
+}
+function api_v1_items_create(payload) {
+  return moduletestingAPI.post(`/api/v1/items/`, payload)
+}
+function api_v1_items_retrieve(payload) {
+  return moduletestingAPI.get(`/api/v1/items/${payload.id}/`)
+}
+function api_v1_items_update(payload) {
+  return moduletestingAPI.put(`/api/v1/items/${payload.id}/`, payload)
+}
+function api_v1_items_partial_update(payload) {
+  return moduletestingAPI.patch(`/api/v1/items/${payload.id}/`, payload)
+}
+function api_v1_items_destroy(payload) {
+  return moduletestingAPI.delete(`/api/v1/items/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return moduletestingAPI.post(`/api/v1/login/`, payload)
 }
@@ -49,6 +67,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_items_list,
+  api_v1_items_create,
+  api_v1_items_retrieve,
+  api_v1_items_update,
+  api_v1_items_partial_update,
+  api_v1_items_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
